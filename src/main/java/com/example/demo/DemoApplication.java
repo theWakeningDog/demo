@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 * 让spring boot自动给程序进行必要的配置，等价于以默认属性使用
 * @Configuration	@EnableAutoConfiguration		@ComponentScan
 * */
-@ServletComponentScan
+//@ServletComponentScan
 @SpringBootApplication
 public class DemoApplication {
 

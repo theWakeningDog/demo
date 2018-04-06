@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
  *
  * 需要在Application.java中添加@ServletComponentScan
  *
- *  配置完成访问：http://127.0.0.1:8080/druid/index.html
+ *  配置完成访问：http://127.0.0.1:8080/druid/index.html，这个地址和下面的配置的urlPatterns有关
  * Created by zhangwei on 2018/4/2 0002.
  */
 @WebServlet(urlPatterns = "/druid/*",
