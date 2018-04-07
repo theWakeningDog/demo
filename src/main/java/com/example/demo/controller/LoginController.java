@@ -16,6 +16,11 @@ public class LoginController {
         return "/druid/login";
     }
 
+    @GetMapping("/toMyres")
+    public String toMyres() {
+        return "/myres/2.html";
+    }
+
     /*
     * 重定向，跳转至另一个controller
     * */

@@ -3,6 +3,7 @@ package com.example.demo.util;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 /**
  * 普通类调用Spring bean对象
@@ -10,6 +11,7 @@ import org.springframework.context.ApplicationContextAware;
  * 说明：此类需要放到App.java同包或子包下才能被扫描
  * Created by zhangwei on 2018/4/6 0006.
  */
+@Component
 public class SpringUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext = null;

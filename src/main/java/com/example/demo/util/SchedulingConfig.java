@@ -15,7 +15,7 @@ public class SchedulingConfig {
     /*
     * 一定注意*、？是有空格的
     * */
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0/30 * * * * ?")
     public void scheduler() {
         System.out.println("======5秒一次的定时任务======");
     }

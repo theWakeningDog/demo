@@ -18,6 +18,8 @@ import java.sql.SQLException;
  * druid配置，这种不要在Application.java中配置@ServletComponentScan
  *
  * 配置完成访问：http://127.0.0.1:8080/druid2/index.html
+ *
+ * 没出现正确结果
  * Created by zhangwei on 2018/4/4 0004.
  */
 @Configuration
@@ -41,7 +43,7 @@ public class Druid2 {
         bean.addInitParameter("loginUsername", "admin2");
         bean.addInitParameter("loginPassword", "123456");
         //是否能够重置数据
-        bean.addInitParameter("reseEnable", "false");
+        bean.addInitParameter("resetEnable", "false");
         return bean;
     }
 

@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.entity.Demo;
 import com.example.demo.service.DemoService;
+import com.example.demo.util.SpringUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping("/save")
     public String save() {
+        Object o = SpringUtil.getBean("com.example.demo.controller.LoginController");
         Demo d = new Demo();
         d.setName("小名");
         d.setId(2);
