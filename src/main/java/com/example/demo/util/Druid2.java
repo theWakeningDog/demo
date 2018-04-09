@@ -19,7 +19,8 @@ import java.sql.SQLException;
  *
  * 配置完成访问：http://127.0.0.1:8080/druid2/index.html
  *
- * 没出现正确结果
+ * 没出现正确结果，原因：
+ * 不能和druid1同时有，只能存在一个
  * Created by zhangwei on 2018/4/4 0004.
  */
 @Configuration
@@ -31,7 +32,7 @@ public class Druid2 {
     @Bean
     public ServletRegistrationBean DruidStatViewServlet2() {
         ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(),
-                "/druid2/*");
+                "/druid/*");
 
         //添加初始化参数
 
@@ -59,7 +60,7 @@ public class Druid2 {
         filterRegistrationBean.addUrlPatterns("/*");
 
         //添加不需要忽略的格式信息
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid2/*");
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
     }
 
@@ -68,25 +69,25 @@ public class Druid2 {
     *
     * 要和application.properties参数设置对应
     * */
-//    @Bean
-//    public DataSource druidDataSource(@Value("${spring.datasource.driver-class-name}") String driverClassName,
-//                                      @Value("${spring.datasource.url}") String url,
-//                                      @Value("${spring.datasource.username}") String username,
-//                                      @Value("${spring.datasource.password}") String password,
-//                                      @Value("${spring.datasource.max-active}") int maxActive) {
-//        DruidDataSource druidDataSource = new DruidDataSource();
-//        druidDataSource.setDriverClassName(driverClassName);
-//        druidDataSource.setUrl(url);
-//        druidDataSource.setUsername(username);
-//        druidDataSource.setPassword(password);
-//        druidDataSource.setMaxActive(maxActive);
-//        System.out.println("--------------DruidDataSource, driverClassName" + driverClassName +
-//                "，url" + url + "，username" + username + ",password" + password + ",maxActive" + maxActive);
-//        try {
-//            druidDataSource.setFilters("stat, wall");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return druidDataSource;
-//    }
+    @Bean
+    public DataSource druidDataSource(@Value("${spring.datasource.driver-class-name}") String driverClassName,
+                                      @Value("${spring.datasource.url}") String url,
+                                      @Value("${spring.datasource.username}") String username,
+                                      @Value("${spring.datasource.password}") String password,
+                                      @Value("${spring.datasource.max-active}") int maxActive) {
+        DruidDataSource druidDataSource = new DruidDataSource();
+        druidDataSource.setDriverClassName(driverClassName);
+        druidDataSource.setUrl(url);
+        druidDataSource.setUsername(username);
+        druidDataSource.setPassword(password);
+        druidDataSource.setMaxActive(maxActive);
+        System.out.println("--------------DruidDataSource, driverClassName" + driverClassName +
+                "，url" + url + "，username" + username + ",password" + password + ",maxActive" + maxActive);
+        try {
+            druidDataSource.setFilters("stat, wall");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return druidDataSource;
+    }
 }
