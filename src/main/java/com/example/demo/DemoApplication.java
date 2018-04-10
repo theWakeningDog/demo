@@ -1,9 +1,11 @@
 package com.example.demo;
 
+import com.example.demo.controller.MyServlet;
 import com.example.demo2.SpringUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
@@ -24,6 +26,11 @@ public class DemoApplication {
 //	public SpringUtil springUtil2() {
 //		return new SpringUtil();
 //	}
+
+	@Bean
+	public ServletRegistrationBean MyServlet() {
+		return new ServletRegistrationBean(new MyServlet(),"/myservlet/*");
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
