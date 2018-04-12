@@ -81,8 +81,8 @@ public class Druid2 {
         druidDataSource.setUsername(username);
         druidDataSource.setPassword(password);
         druidDataSource.setMaxActive(maxActive);
-        System.out.println("--------------DruidDataSource, driverClassName" + driverClassName +
-                "，url" + url + "，username" + username + ",password" + password + ",maxActive" + maxActive);
+        System.out.println("--------------DruidDataSource, driverClassName：" + driverClassName +
+                "，url：" + url + "，username：" + username + ",password：" + password + ",maxActive：" + maxActive);
         try {
             druidDataSource.setFilters("stat, wall");
         } catch (SQLException e) {

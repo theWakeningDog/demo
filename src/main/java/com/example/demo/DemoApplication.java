@@ -27,7 +27,10 @@ public class DemoApplication {
 //		return new SpringUtil();
 //	}
 
-	@Bean
+	/*
+	* 注册servlet
+	* */
+	//@Bean
 	public ServletRegistrationBean MyServlet() {
 		return new ServletRegistrationBean(new MyServlet(),"/myservlet/*");
 	}
