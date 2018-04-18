@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by zhangwei on 2018/4/16 0016.
  */
-@Configuration
+@Configuration(value = "myInterceptorWebAppConfigurer") //不能有重名
 public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
 
     @Override
