@@ -4,12 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Created by ZhangWei on 2018/4/17 11:38.
+ * Created by zhangwei on 2018/4/18 0018 下午 9:35.
  */
 @SpringBootApplication
-public class CommandLineRunnerApplication {
+public class EnvironmentAwareApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CommandLineRunnerApplication.class, new String[]{"张伟", "杨仕臻"});
+        SpringApplication.run(EnvironmentAwareApplication.class, args);
     }
 }
