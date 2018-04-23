@@ -15,7 +15,7 @@ public class UserPropertiesController {
     @Autowired
     private UserProperties2 userProperties2;
 
-    @RequestMapping
+    @RequestMapping("/up")
     public String up() {
         return "姓名1：" + userProperties1.getName() + "，性别1：" + userProperties1.getGender() +
                 "\n姓名2：" + userProperties2.getName() + "，性别2：" + userProperties2.getGender();

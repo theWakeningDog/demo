@@ -1,6 +1,5 @@
 package com.example.demo.fileUpLoad;
 
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +15,10 @@ import java.io.*;
 @RequestMapping("/fileUpLoad")
 public class FileUpLoadController {
 
+    @RequestMapping("/file")
     public  String file() {
-        return "/fileUpLoad/file";
+        System.out.println("11111111111111111111111111111111111111");
+        return "/fileUpLoad/file.html";
     }
 
     @ResponseBody
