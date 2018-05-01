@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class FileUpLoadController {
     public String upLoad(@RequestParam MultipartFile file) {
         if (!file.isEmpty()) {
             try {
+                String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+                System.out.println("==========" + path + "============");
                 BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(
                         new File(file.getOriginalFilename())));
                 out.write(file.getBytes());
@@ -60,7 +63,7 @@ public class FileUpLoadController {
         BufferedOutputStream out = null;
         for (int i = 0; i < fileList.size(); ++i) {
             multipartFile = fileList.get(i);
-            if (!multipartFile.isEmpty()) {
+            if (!multipartFile.isEmpty()) {         //文件不能为空
                 try {
                     byte[] bytes = multipartFile.getBytes();
                     out = new BufferedOutputStream(new FileOutputStream(new File(multipartFile.getOriginalFilename())));

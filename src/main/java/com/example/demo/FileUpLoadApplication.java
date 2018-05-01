@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import javax.servlet.MultipartConfigElement;
 
+
 /**
  * Created by ZhangWei on 2018/4/23 15:34.
  */
@@ -20,7 +21,12 @@ public class FileUpLoadApplication {
         factory.setMaxFileSize("100KB");
         //设置总上传数据大小
         factory.setMaxRequestSize("200KB");
-        factory.setLocation("路径地址");
+
+        String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+        System.out.println("==========" + path + "============");
+
+
+        //factory.setLocation("路径地址");
         return factory.createMultipartConfig();
     }
 
